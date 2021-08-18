@@ -6,9 +6,9 @@ let francisco = {
     apellido: "Contreras Sanchez"
 }
 
-console.log(typeof francisco.nombre)
+// console.log(typeof francisco.nombre)
+txt.numeroCaracteres(cadena)
 // txt.numeroCaracteres(cadena)
-txt.cortarCadena(francisco.nombre,9)
-txt.cadenaArreglo(francisco.apellido)
-console.log(isNaN(" a"))
+txt.cortarCadena(francisco.nombre,19)
+txt.cadenaArreglo(cadena," ")
 txt.repetirCadena(cadena,5)

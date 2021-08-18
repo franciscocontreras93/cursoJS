@@ -1,52 +1,54 @@
-function numeroCaracteres(string="") {
-let cadena = new String(string)
-let noSpace = cadena.replace()
-let validation = (cadena == null || cadena.length == 0 || /^\s+$/.test(cadena)) 
-? console.warn("Cadena Vacia")
-: console.info(`Num. Caracteres: ${cadena.length}`)
-
+/* Funciones de Validacion Cadenas: Retorna falso cuando string = null length = 0 y string = " \s " (espacios) y validacion Numeros: retorna falso cuando n = null, isNaN = true, n contiene letras y n = ""   */
+function validarCadena(string) {
+  if (string == null || string.length == 0 || /^\s+$/.test(string)) {
+    return console.log("Cadena de texto invalida, no puede ser vacia.");
+  } else {
+    return string;
+  }
+}
+function validarNumero(n) {
+  if (n == undefined || isNaN(n) || /^[a-zA-Z]$/.test(n) || n == "") {
+    console.log("el valor debe ser de tipo Numero");
+  } else {
+    return n;
+  }
+}
+function validarSeparador(separador) {
+  if (separador == null) {
+    return console.log("Separador no puede ser Null o Undefined");
+  } else {
+    return separador;
+  }
+}
+/* Ejercicio numero 1: Contar el numero de caracteres dentro de una cadena de texto,
+ejecuto la validacion de cadenas para comprobar que el parametro string no sea una cadena nula, que no sea una cadena vacia "", y que no sea una cedena de espacios "   ". 
+ */
+function numeroCaracteres(string = "") {
+  let cadena = new String(string);
+  return console.log(validarCadena(cadena.length));
 }
 
-function cortarCadena(string, n=undefined) {
-    let cadena = new String(string)
-    let i = null
-    let valNum = (n == null || isNaN(n) || /^[a-zA-Z]$/.test(n) || n > cadena.length)
-    ? console.warn(`Segundo parametro debe ser igual o mayor a ${cadena.length}`)
-    : i = n
-    let valString = (cadena == null || cadena.length == 0 || /^\s+$/.test(cadena))
-    ?console.warn("Cadena Vacia") 
-    :console.info(cadena.substr(0,n))
+/* Ejercicio numero 2: recortar una cadena de texto, nuevamente valido la cadena de texto con la funcion de validar cadena y valido que el valor del parametro n sea un numero con la validacion de numeros   */
+
+function cortarCadena(string, n = undefined) {
+  let cadena = new String(string);
+  return console.log(validarCadena(cadena.substr(0, validarNumero(n))));
+}
+/* Ejercicio numero 3: Arreglo en cadena, inicializo el parametro separador como " ", se valida la cadena, el usuario puede ingresar cualquier valor para el parametro separador */
+
+function cadenaArreglo(string, separator = " ") {
+  let cadena = new String(string);
+  return console.log(validarCadena(cadena.split(separator)));
 }
 
-function cadenaArreglo(string="", separator=" ") {
-    let cadena = new String(string)
-    let i = undefined
-    let valSym = (separator == null) 
-    ?console.warn(`el separador no puede ser Nulo`)
-    :i = separator
-    let valString = (cadena == null || cadena.length == 0 || /^\s+$/.test(cadena)) 
-    ?console.warn("Cadena Vacia") 
-    :console.info(cadena.split(i))
-    
-    
+function repetirCadena(string, n) {
+  let cadena = new String(string + " ");
+  return console.log(validarCadena(cadena.repeat(validarNumero(n))));
 }
-
-function repetirCadena(string,n){
-    let cadena = new String(string + " ")
-    let i = null
-    let valNum = (n == null || isNaN(n)) 
-    ?console.warn("Segundo Parametro debe ser un numero") 
-    :i = n
-
-    let valString = (cadena == null || cadena.length == 0 || /^\s+$/.test(cadena)) 
-    ?console.warn("Cadena Vacia") 
-    :console.info(cadena.repeat(i))
-}
-
 
 export const texto = {
-    numeroCaracteres,
-    cortarCadena,
-    cadenaArreglo,
-    repetirCadena
-}
+  numeroCaracteres,
+  cortarCadena,
+  cadenaArreglo,
+  repetirCadena,
+};
