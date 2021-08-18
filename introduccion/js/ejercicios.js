@@ -13,13 +13,13 @@ function validarNumero(n) {
     return n;
   }
 }
-function validarSeparador(separador) {
+/* TODO function validarSeparador(separador) {
   if (separador == null) {
     return console.log("Separador no puede ser Null o Undefined");
   } else {
     return separador;
   }
-}
+} */
 /* Ejercicio numero 1: Contar el numero de caracteres dentro de una cadena de texto,
 ejecuto la validacion de cadenas para comprobar que el parametro string no sea una cadena nula, que no sea una cadena vacia "", y que no sea una cedena de espacios "   ". 
  */
